@@ -1,0 +1,45 @@
+<?php $this->setLayout('full'); ?>
+
+<?php if ($logout): ?>
+    <div class="alert alert-success"><?=Language::getText('success_logout')?></div>
+<?php endif; ?>
+
+<div class="jumbotron">
+    <!-- To display your sitename uncomment the following line -->
+    <!-- <h1><?=$config->sitename?></h1> -->
+    <h1><b>IndiePlat</b><br>
+	<i>Discover the best in independent cinema.</i></h1>
+    <p>IndiePlat simplifies the discovery of great content from independent creators.</p>
+    <p><a class="btn btn-primary btn-lg" href="videos" role="button">Browse</a></p>
+</div>
+
+
+<!-- Begin Featured Videos -->
+<div class="featured-videos">
+
+    <h1><?=Language::getText('featured_videos')?></h1>
+    <div class="video-list">
+        <?php if (!empty ($featured_videos)): ?>
+            <?php $this->repeatingBlock('video.phtml', array_slice($featured_videos, 0, 4)); ?>
+        <?php else: ?>
+            <div class="block"><strong><?=Language::getText('no_videos')?></strong></div>
+        <?php endif; ?>
+    </div>
+
+</div>
+<!-- End Featured Videos -->
+
+<!-- Begin Recent Videos -->
+<div class="recent-videos">
+
+    <h1><?=Language::getText('recent_videos')?></h1>
+    <div class="video-list">
+        <?php if (!empty ($recent_videos)): ?>
+            <?php $this->repeatingBlock('video.phtml', array_slice($recent_videos, 0, 4)); ?>
+        <?php else: ?>
+            <div class="block"><strong><?=Language::getText('no_videos')?></strong></div>
+        <?php endif; ?>
+    </div>
+
+</div>
+<!-- End Recent Videos --> 
